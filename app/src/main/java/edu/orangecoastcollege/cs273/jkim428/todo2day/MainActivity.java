@@ -17,6 +17,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Clear the existing database
+        deleteDatabase(DBHelper.DATABASE_NAME);
+
         // Pre-populate the List with 4 tasks
         mAllTasksList.add(new Task("Study for CS 273 Midterm", false));
         mAllTasksList.add(new Task("Finish IC#08", true));
@@ -38,5 +41,13 @@ public class MainActivity extends AppCompatActivity {
         // Loop through each of the Tasks, print them to Log.i
         for (Task t : mAllTasksList)
             Log.i(TAG, t.toString());
+
+
+        Log.i(TAG, "After deleting task 4");
+        db.deleteTask(mAllTasksList.get(3));
+        mAllTasksList = db.getAllTasks();
+        for (Task t : mAllTasksList)
+            Log.i(TAG, t.toString());
+
     }
 }
