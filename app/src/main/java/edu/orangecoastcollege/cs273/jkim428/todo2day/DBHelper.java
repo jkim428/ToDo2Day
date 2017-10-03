@@ -50,7 +50,7 @@ class DBHelper extends SQLiteOpenHelper{
         onCreate(db);
     }
 
-    public void addTasks(Task newTask)
+    public void addTask(Task newTask)
     {
         SQLiteDatabase db = getWritableDatabase();
         // Specify the values (fields) to insert into the database
@@ -90,6 +90,13 @@ class DBHelper extends SQLiteOpenHelper{
     {
         SQLiteDatabase db = getWritableDatabase();
         db.delete(DATABASE_TABLE, KEY_FIELD_ID + "=" + taskToDelete.getId(), null);
+        db.close();
+    }
+
+    public void deleteAllTasks()
+    {
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete(DATABASE_TABLE, null, null);
         db.close();
     }
 
