@@ -8,5 +8,6 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:padding="10dp"
-        android:background="@color/yellow" />
+        android:background="@color/yellow"
+        android:onClick="toggleTaskStatus"/>
 </RelativeLayout>
